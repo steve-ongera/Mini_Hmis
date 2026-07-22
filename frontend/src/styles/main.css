@@ -1,0 +1,170 @@
+:root {
+  --hms-primary: #2563eb;
+  --hms-primary-dark: #1d4ed8;
+  --hms-bg: #f4f6f9;
+  --hms-sidebar-bg: #101c34;
+  --hms-sidebar-active: #1e3a63;
+  --hms-border: #e5e9f0;
+  --hms-sidebar-width: 240px;
+}
+
+body {
+  background-color: var(--hms-bg);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Login page                                                              */
+/* ---------------------------------------------------------------------- */
+.login-page {
+  background: linear-gradient(160deg, var(--hms-primary) 0%, #0f1f3d 100%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 14px;
+}
+
+.login-icon {
+  font-size: 2.5rem;
+  color: var(--hms-primary);
+}
+
+/* ---------------------------------------------------------------------- */
+/* App shell (sidebar + navbar layout)                                     */
+/* ---------------------------------------------------------------------- */
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  width: var(--hms-sidebar-width);
+  min-width: var(--hms-sidebar-width);
+  background: var(--hms-sidebar-bg);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 0.75rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 1030;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 0 0.5rem 1.25rem;
+  color: #fff;
+}
+
+.sidebar-brand i {
+  color: var(--hms-primary);
+  font-size: 1.4rem;
+}
+
+.sidebar-nav {
+  gap: 0.25rem;
+}
+
+.sidebar-link {
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.925rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.sidebar-link.active {
+  background-color: var(--hms-sidebar-active);
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+.app-main {
+  min-width: 0;
+}
+
+.app-navbar {
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.navbar-title {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.app-content {
+  background-color: var(--hms-bg);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Dashboard stat cards                                                    */
+/* ---------------------------------------------------------------------- */
+.stat-card {
+  border-radius: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/* 404 page                                                                 */
+/* ---------------------------------------------------------------------- */
+.not-found i {
+  color: var(--hms-primary);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Responsive: off-canvas sidebar on small screens                         */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .app-sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100vh;
+    transition: left 0.2s ease;
+  }
+
+  body.sidebar-open .app-sidebar {
+    left: 0;
+  }
+
+  body.sidebar-open .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1025;
+  }
+}
